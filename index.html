@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anushree G. L. | Software Developer Portfolio</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #06b6d4;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: var(--light);
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e1b4b 100%);
+            color: white;
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #818cf8, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(6, 182, 212, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary);
+            margin-top: 0.5rem;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .hobby-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .pill {
+            background: #e0e7ff;
+            color: var(--primary-dark);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Grid & Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 20px -5px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            color: var(--gray);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .card-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills Matrix */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-group {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .skill-group h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-weight: 500;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">Anushree G. L.</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#goals">Goals</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="hero">
+        <h1>Anushree G. L.</h1>
+        <p class="subtitle">Computer Science & Information Technology Student | Aspiring Software Engineer</p>
+        <p style="color: #cbd5e1;">3rd Semester, B.Tech CSIT</p>
+        <div class="hero-btns">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="https://github.com/anushreegl007-hue" target="_blank" class="btn btn-outline">GitHub Profile</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-card">
+                <p>I am a B.Tech CSIT student passionate about software engineering, data structures, and computer science fundamentals. I focus on developing clean, practical code while continuously expanding my technical skills through hands-on practice.</p>
+                
+                <p style="margin-top: 1.5rem; font-weight: 600; color: var(--dark);">Creative Interests & Hobbies:</p>
+                <div class="hobby-pills">
+                    <span class="pill">Dancing</span>
+                    <span class="pill">Singing</span>
+                    <span class="pill">Drawing</span>
+                    <span class="pill">Reading Books</span>
+                    <span class="pill">Watching TV</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="grid">
+                
+                <div class="card">
+                    <div>
+                        <h3>Hello World Setup</h3>
+                        <div class="tags">
+                            <span class="tag">C</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">VS Code</span>
+                        </div>
+                        <p>Core environment setup establishing baseline version control workflows, repository management, and C program execution.</p>
+                    </div>
+                    <a href="https://github.com/anushreegl007-hue/hello-world-c" target="_blank" class="card-link">View Repository &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Pair Programming Session</h3>
+                        <div class="tags">
+                            <span class="tag">GitLens</span>
+                            <span class="tag">Live Share</span>
+                            <span class="tag">Code Review</span>
+                        </div>
+                        <p>Real-time collaborative coding workflow executed with a peer, focusing on shared debugging, peer code reviews, and commit logging.</p>
+                    </div>
+                    <a href="https://github.com/anushreegl007-hue/hello-world-c" target="_blank" class="card-link">View Repository &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>LeetCode Practice Archive</h3>
+                        <div class="tags">
+                            <span class="tag">C</span>
+                            <span class="tag">C++</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">DSA</span>
+                        </div>
+                        <p>Continuous collection of solved algorithmic challenges demonstrating progress in data structures, time complexity, and problem solving.</p>
+                    </div>
+                    <a href="https://github.com/anushreegl007-hue/leetcode-solutions" target="_blank" class="card-link">View Repository &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-group">
+                    <h4>Languages</h4>
+                    <ul class="skill-list">
+                        <li>C</li>
+                        <li>C++</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Developer Tools</h4>
+                    <ul class="skill-list">
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>GitLens</li>
+                        <li>GitHub Live Share</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h4>Core Concepts</h4>
+                    <ul class="skill-list">
+                        <li>Data Structures</li>
+                        <li>Algorithms</li>
+                        <li>Collaborative Coding</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <section id="goals">
+            <h2 class="section-title">Career Goal</h2>
+            <div class="about-card" style="border-left: 4px solid var(--primary);">
+                <p style="font-size: 1.1rem; color: var(--dark);"><strong>Target:</strong> Build a rigorous technical background in computer science principles and problem-solving to secure a high-impact software engineering role in the technology industry.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed & Developed by Anushree G. L. | Published via GitHub Pages</p>
+        <p style="margin-top: 0.5rem;"><a href="https://github.com/anushreegl007-hue" target="_blank">github.com/anushreegl007-hue</a></p>
+    </footer>
+
+</body>
+</html>
